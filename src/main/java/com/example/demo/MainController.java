@@ -18,10 +18,11 @@ public class MainController {
     @RequestMapping(value = "/{city}")
     @ResponseBody
     public String getTemperature() {
+        //example steps
         //fetch the temperature from api (GET request)
         //get JSON back in a String
         //parse the JSON
-        return json("temperature");
+        return "";//json("temperature");
     }
 
     @RequestMapping(value = "/color", method = RequestMethod.GET)
@@ -42,8 +43,9 @@ public class MainController {
 //            "date":"08-04-2025"
 //        }
 
-        temperatureInput.date
-        temperatureInput.location
+        //temperatureInput.date
+        //temperatureInput.location
+        return "";
     }
 
 
