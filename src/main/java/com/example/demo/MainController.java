@@ -1,13 +1,19 @@
 package com.example.demo;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpRequest;
 
+
 @Controller
 public class MainController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
 
     @RequestMapping(value = "/hello")
     @ResponseBody
@@ -33,7 +39,7 @@ public class MainController {
         return color;
     }
 
-    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    @RequestMapping(value = "/oldpost", method = RequestMethod.POST)
     @ResponseBody
     public String getTemperature3(
             @ModelAttribute TemperatureInput temperatureInput
@@ -46,6 +52,29 @@ public class MainController {
         //temperatureInput.date
         //temperatureInput.location
         return "";
+    }
+
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<String> getTemperature3(
+            @RequestBody String input
+    ) {
+
+
+
+//        {
+//            "location":"Riga",
+//            "date":"08-04-2025"
+//        }
+
+        //temperatureInput.date
+        //temperatureInput.location
+
+        LOGGER.debug("Input: " + input);
+        LOGGER.warn("Input: " + input);
+        LOGGER.error("Input: " + input);
+        LOGGER.info("Input: " + input);
+        return ResponseEntity.ok().body(input);
     }
 
 
